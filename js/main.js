@@ -1,3 +1,54 @@
+
+/*---navigation menu-----*/
+(() =>{
+    const hamburgerBtn = document.querySelector(".hamburger-btn"),
+    navMenu = document.querySelector(".nav-menu"),
+    closeNavBtn = navMenu.querySelector(".close-nav-menu");
+
+    hamburgerBtn.addEventListener("click", showNavMenu);
+    closeNavBtn.addEventListener("click", hideNavMenu);
+
+    function showNavMenu(){
+        navMenu.classList.add("open");
+        bodyScrollingToggle();
+    }
+    function hideNavMenu(){
+        navMenu.classList.remove("open");
+        fadeOutEffect();
+        bodyScrollingToggle();
+    }
+    function fadeOutEffect(){
+        document.querySelector(".fade-out-effect").classList.add("active");
+        setTimeout(() =>{
+        document.querySelector(".fade-out-effect").classList.remove("active");
+        },3000)
+    }
+    /*attach an event handler to document*/
+    document.addEventListener("click",(event) =>{
+        if(event.target.classList.contains('link-item')){
+            /*make sure event.target.hash has a value before over behavior*/
+            if(event.target.hash !==""){
+                //prevent default anchor click behavior
+                event.preventDefault();
+                const hash = event.target.hash;
+                //desactivate existing active 'section'
+                document.querySelector(".section.active").classList.add("hide");
+                document.querySelector(".section.active").classList.remove("active");
+                //activate new 'section'
+                document.querySelector(hash).classList.add("active");
+                document.querySelector(hash).classList.remove("hide");
+                //deactivate existing active navigation menu 'link-item' 
+                navMenu.querySelector(".active").classList.add("outer-shadow","hover-in-shadow");
+                navMenu.querySelector(".active").classList.remove("active","inner-shadow");
+                //activate new navigation menu 'link-item' 
+                event.target.classList.add("active","inner-shadow");
+                event.target.classList.remove("outer-shadow","hover-in-shadow");
+                //hide navigation menu
+                hideNavMenu();
+            }
+        }
+    })
+})();
 /*-----------about section tabs----------*/
 (() =>{
     const aboutSection = document.querySelector(".about-section"),
@@ -21,3 +72,4 @@
         }
     })
 })();
+/*-----------hide all sections except active ---------*/
