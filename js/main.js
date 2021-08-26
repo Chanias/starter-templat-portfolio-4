@@ -1,5 +1,20 @@
 
 /*---navigation menu-----*/
+function showNavMenu(){
+    navMenu.classList.add("open");
+    bodyScrollingToggle();
+}
+function hideNavMenu(){
+    navMenu.classList.remove("open");
+    fadeOutEffect();
+    bodyScrollingToggle();
+}
+function fadeOutEffect(){
+    document.querySelector(".fade-out-effect").classList.add("active");
+    setTimeout(() =>{
+    document.querySelector(".fade-out-effect").classList.remove("active");
+    },3000)
+}
 (() =>{
     const hamburgerBtn = document.querySelector(".hamburger-btn"),
     navMenu = document.querySelector(".nav-menu"),
@@ -8,21 +23,7 @@
     hamburgerBtn.addEventListener("click", showNavMenu);
     closeNavBtn.addEventListener("click", hideNavMenu);
 
-    function showNavMenu(){
-        navMenu.classList.add("open");
-        bodyScrollingToggle();
-    }
-    function hideNavMenu(){
-        navMenu.classList.remove("open");
-        fadeOutEffect();
-        bodyScrollingToggle();
-    }
-    function fadeOutEffect(){
-        document.querySelector(".fade-out-effect").classList.add("active");
-        setTimeout(() =>{
-        document.querySelector(".fade-out-effect").classList.remove("active");
-        },3000)
-    }
+    
     /*attach an event handler to document*/
     document.addEventListener("click",(event) =>{
         if(event.target.classList.contains('link-item')){
@@ -40,6 +41,10 @@
                 //deactivate existing active navigation menu 'link-item' 
                 navMenu.querySelector(".active").classList.add("outer-shadow","hover-in-shadow");
                 navMenu.querySelector(".active").classList.remove("active","inner-shadow");
+                // if clicked 'link-item is contained withing the '
+                if(navMenu.classList.contains("open")){
+
+                }
                 //activate new navigation menu 'link-item' 
                 event.target.classList.add("active","inner-shadow");
                 event.target.classList.remove("outer-shadow","hover-in-shadow");
@@ -49,6 +54,7 @@
         }
     })
 })();
+
 /*-----------about section tabs----------*/
 (() =>{
     const aboutSection = document.querySelector(".about-section"),
