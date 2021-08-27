@@ -21,27 +21,22 @@
           <div class="logo">
             <a href="index.html">C</a>
           </div>
-          <div class="hamburger-btn outer-shadow hover-in-shadow">
-            <span></span>
-          </div>
+         
         </div>
       </div>
     </header>
     <!--header end-->
     <!--navigation menu start -->
-    <nav class="nav-menu">
-      <div class="close-nav-menu outer-shadow hover-in-shadow">&times;</div>
-      <div class="nav-menu-inner">
-        <ul>
-          <li><a href="#home" class="link-item inner-shadow active">home</a></li>
-          <li><a href="#about" class="link-item outer-shadow hover-in-shadow">about</a></li>
-          <li><a href="#portfolio" class="link-item outer-shadow hover-in-shadow">portfolio</a></li>
-          <li><a href="#contact" class="link-item outer-shadow hover-in-shadow">contact</a></li>
-        </ul>
-      </div>
-      <!-- copyright text-->
-      <p class="copyright-text">&copy; 2021 WebChanias</p>
-    </nav>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+     
+      <a href="#contact">Contact</a>
+    </div>
+    
+    
+    <span style="font-size:50px;cursor:pointer" onclick="openNav()">&#9776; open</span>
     <!--navigation menu end -->
 
     <!--home section start-->
@@ -168,7 +163,8 @@
               class="btn-1 outer-shadow hover-in-shadow"
               >Download CV</a>
             <a href="#contact" 
-            class="link-item btn-1 outer-shadow hover-in-shadow">Contactez moi</a>
+            class="link-item btn-1 outer-shadow hover-in-shadow">
+            Contactez moi</a>
           </div>
         </div>
         <!--about tabs start-->
@@ -269,7 +265,7 @@
                 <div class="timeline-item">
                   <div class="timeline-item-inner outer-shadow">
                     <i class="fas fa-briefcase icon"></i>
-                    <span>De 2015 à 2021</span>
+                    <span>2013</span>
                     <h3>Animatrice de centre de loisirs</h3>
                     <h4>CLSH de Beauvoir sur Niort</h4>
                     <p>Lorem ipsum dolor, sit amet consectetur 

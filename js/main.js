@@ -1,6 +1,11 @@
-
 /*---navigation menu-----*/
-
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
 /*-----------about section tabs----------*/
 (() =>{
     const aboutSection = document.querySelector(".about-section"),
